@@ -1,13 +1,13 @@
 ﻿@model ToDoList.Models.Problem
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Просмотр";
 }
 
-<h1>Details</h1>
+<h1>Просмотр</h1>
 
 <div>
-    <h4>Problem</h4>
+    <h4>Задача</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -23,13 +23,13 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Priority)
+            @Html.DisplayNameFor(model => model.Priority.Name)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Priority.Id)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
+            @Html.DisplayNameFor(model => model.Status.Name)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Status.Id)
@@ -37,6 +37,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Изменить</a> |
+    <a asp-action="Index">Вернуться назад</a>
 </div>
