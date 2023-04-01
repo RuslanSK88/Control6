@@ -85,8 +85,8 @@ namespace ToDoList.Controllers
             {
                 return NotFound();
             }
-            ViewData["PriorityId"] = new SelectList(_context.Priorities, "Id", "Id", problem.PriorityId);
-            ViewData["StatusId"] = new SelectList(_context.Statuses, "Id", "Id", problem.StatusId);
+            ViewData["PriorityId"] = new SelectList(_context.Priorities, "Id", "Name", problem.PriorityId);
+            ViewData["StatusId"] = new SelectList(_context.Statuses, "Id", "Name", problem.StatusId);
             return View(problem);
         }
 
@@ -122,8 +122,8 @@ namespace ToDoList.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PriorityId"] = new SelectList(_context.Priorities, "Id", "Id", problem.PriorityId);
-            ViewData["StatusId"] = new SelectList(_context.Statuses, "Id", "Id", problem.StatusId);
+            ViewData["PriorityId"] = new SelectList(_context.Priorities, "Id", "Name", problem.PriorityId);
+            ViewData["StatusId"] = new SelectList(_context.Statuses, "Id", "Name", problem.StatusId);
             return View(problem);
         }
 
