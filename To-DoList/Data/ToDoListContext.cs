@@ -1,6 +1,12 @@
-﻿namespace To_DoList.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace ToDoList.Data;
+
+public class ToDoListContext : DbContext
 {
-    public class To_DoListContext
+    public ToDoListContext(DbContextOptions options) : base(options)
     {
     }
+
 }
+
