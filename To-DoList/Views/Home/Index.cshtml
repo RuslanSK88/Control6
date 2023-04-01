@@ -1,8 +1,45 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@model ToDoList.ViewModels.IndexViewModel
+
+@{
+    ViewData["Title"] = "Все задачи";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<table class="table">
+    <tr>
+        <td>Номер</td>
+        <td>Название задачи</td>
+        <td>Приоритет</td>
+        <td>Статус</td>
+        <td>Действия</td>
+    </tr>
+    @foreach (Problem problem in Model.Problem)
+    {
+        <tr>
+            <td>@problem.Id</td>
+            <td>@problem.Name</td>
+                        <td>
+                @foreach (Priority priority in Model.Priority)
+                {
+                    if (problem.PriorityId == priority.Id)
+                    {
+                        @priority.Name
+                    }
+                }
+            </td>
+            <td>
+                @foreach (Status status in Model.Status)
+                {
+                    if (problem.StatusId == status.Id)
+                    {
+                        @status.Name
+                    }
+                }
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    }
+</table>
+

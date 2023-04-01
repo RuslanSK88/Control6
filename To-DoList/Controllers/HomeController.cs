@@ -1,26 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using ToDoList.Data;
 using ToDoList.Models;
+using ToDoList.ViewModels;
 
 namespace ToDoList.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ToDoListContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ToDoListContext db)
         {
-            _logger = logger;
+            _db = db;
         }
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            IndexViewModel vm = new IndexViewModel();
+            vm.Problem = _db.Problems.ToList();
+            vm.Priority = _db.Priorities.ToList();
+            vm.Status = _db.Statuses.ToList();
+            return View(vm);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
