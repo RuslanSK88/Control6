@@ -5,6 +5,7 @@ namespace ToDoList.Models;
 [DisplayColumn("Статус")]
 public class Status
 {
+    [Key]
     public int Id { get; set; }
 
     [Display(Name = "Статус")]

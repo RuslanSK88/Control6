@@ -4,6 +4,7 @@ namespace ToDoList.Models;
 [DisplayColumn("Приоритет")]
 public class Priority
 {
+    [Key]
     public int Id { get; set; }
 
     [Display(Name = "Приоритет")]
